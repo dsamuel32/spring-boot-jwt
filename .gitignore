@@ -12,6 +12,7 @@
 
 .idea/
 *.iml
+*.idea/
 target/
 
 # Package Files #

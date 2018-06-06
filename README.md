@@ -34,7 +34,7 @@ Resposta
 {
   "Pagina": "Página sem segurança!!!!"
 }
-
+```
 
 - Efetue uma requisição para o endpont protegido:
 

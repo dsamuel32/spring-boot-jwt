@@ -36,6 +36,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Value("${security.jwt.resource-ids}")
     private String resourceIds;
 
+    @Value("${security.jwt.refresh-token}")
+    private String refreshToken;
+
     @Autowired
     private TokenStore tokenStore;
 
@@ -51,10 +54,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                 .inMemory()
                 .withClient(clientId)
                 .secret(clientSecret)
-                .authorizedGrantTypes(grantType)
+                .authorizedGrantTypes(grantType, refreshToken)
                 .scopes(scopeRead, scopeWrite)
                 .resourceIds(resourceIds);
     }
+
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         TokenEnhancerChain enhancerChain = new TokenEnhancerChain();

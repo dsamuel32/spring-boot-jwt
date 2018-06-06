@@ -18,7 +18,7 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @PreAuthorize("#oauth2.hasScope('read')")
+    @PreAuthorize("hasAuthority('ADM')")
     @GetMapping()
     public ResponseEntity<UsuarioDTO> getUsuarioLogado() {
         UsuarioDTO usuarioDTO = usuarioService.getUsuarioLogado();

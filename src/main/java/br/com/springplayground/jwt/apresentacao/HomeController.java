@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping(value = "v1/publico/home", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "publico/v1/home", produces = MediaType.APPLICATION_JSON_VALUE)
 public class HomeController {
 
     @GetMapping()

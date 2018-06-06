@@ -33,7 +33,8 @@ public class UsuarioService implements UserDetailsService {
     public UsuarioDTO getUsuarioLogado() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication  authentication = securityContext.getAuthentication();
-        Usuario usuario = (Usuario) authentication.getPrincipal();
+        String userName = (String) authentication.getPrincipal();
+        Usuario usuario = usuarioRepository.findByLogin(userName);
         return modelMapperConverter.converterStrict(usuario, UsuarioDTO.class);
     }
 
